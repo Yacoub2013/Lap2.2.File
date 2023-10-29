@@ -1,15 +1,14 @@
 package File;
 
-public class Multimedia extends File{
+public class Multimedia extends File {
     private String content;
     private Duration duration;
 
 
-
-    public Multimedia(String name, int sizeByte, String format, String content, Duration duration) {
+    public Multimedia(String name, int sizeByte, String format, String content, int hour, int minute, int second) {
         super(name, sizeByte, format);
         setContent(content);
-        setDuration(duration);
+        duration = new Duration(hour, minute, second);
     }
 
     public String getContent() {
@@ -17,9 +16,9 @@ public class Multimedia extends File{
     }
 
     public void setContent(String content) {
-        if(content.isEmpty()){
+        if (content.isEmpty()) {
             throw new IllegalArgumentException("Введите контент");
-        }else{
+        } else {
             this.content = content;
         }
 
@@ -32,11 +31,10 @@ public class Multimedia extends File{
     public void setDuration(Duration duration) {
         this.duration = duration;
     }
-    public void print(){
+
+    public void print() {
         super.print();
-        System.out.print(content);
-        duration.printDuration();
-        System.out.println();
+        System.out.format("%-51s|\n", (getFormat() + "," + getContent() + "," + duration.printDuration()));
     }
 
 }

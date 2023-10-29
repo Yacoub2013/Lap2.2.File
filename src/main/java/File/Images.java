@@ -3,17 +3,9 @@ package File;
 public class Images extends File {
     private Size size;
 
-
-
-
-
-
-
-
-
-        public Images(String name, int sizeByte, String format, Size size) {
+    public Images(String name, int sizeByte, String format, int width, int height) {
         super(name, sizeByte, format);
-        setSize(size);
+        size = new Size(width, height);
     }
 
     public Size getSize() {
@@ -24,9 +16,10 @@ public class Images extends File {
         this.size = size;
 
     }
-    public void print(){
+
+    public void print() {
         super.print();
-        size.printSize();
-        System.out.println();
+        System.out.format("%-51s|\n", (getFormat() + "," + size.printSize()));
+
     }
 }

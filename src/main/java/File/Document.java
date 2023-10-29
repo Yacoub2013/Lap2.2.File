@@ -13,15 +13,17 @@ public class Document extends File {
     }
 
     public void setNumberOfPages(int numberOfPages) {
-        if(numberOfPages<=0){
+        if (numberOfPages <= 0) {
             throw new IllegalArgumentException("Введите кол-во страниц");
-        }else{
+        } else {
             this.numberOfPages = numberOfPages;
         }
 
     }
-    public void print(){
+
+    public void print() {
         super.print();
-        System.out.println(numberOfPages);
+        System.out.format("%-50s |\n", (getFormat() + "," + getNumberOfPages() + " pages"));
+
     }
 }

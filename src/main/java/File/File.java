@@ -1,5 +1,5 @@
 package File;
-import java.util.ArrayList;
+
 public class File {
     private String name;
     private int sizeByte;
@@ -50,7 +50,8 @@ public class File {
     }
 
     public void print() {
-        System.out.print(name + "," + sizeByte + "," + format );
+        System.out.printf("| %-25s | %-17s|  ", name, sizeByte);
+
     }
 }
 

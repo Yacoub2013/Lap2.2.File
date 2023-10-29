@@ -16,9 +16,9 @@ public class Duration {
     }
 
     public void setHour(int hour) {
-        if(hour<=0 || hour>24){
+        if (hour <= 0 || hour > 24) {
             throw new IllegalArgumentException("Введите коректное время");
-        }else{
+        } else {
             this.hour = hour;
         }
 
@@ -36,20 +36,25 @@ public class Duration {
             this.minute = minute;
         }
     }
+
     public int getSecond() {
         return second;
     }
 
     public void setSecond(int second) {
-        if(second<0 || second>60){
+        if (second < 0 || second > 60) {
             throw new IllegalArgumentException("Введите коректное время");
-        }else{
+        } else {
             this.second = second;
         }
 
     }
-    public void printDuration(){
-        System.out.print(","+hour+":"+minute+":"+second);
+
+    public String printDuration() {
+        return hour + ":" + minute + ":" + second;
+
     }
 
 }
+
+

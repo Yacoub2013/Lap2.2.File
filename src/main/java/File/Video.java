@@ -5,13 +5,13 @@ public class Video extends File {
     private Duration duration;
     private Size size;
 
-    public Video(String name, int sizeByte, String format, String content, Size size,Duration duration) {
+    public Video(String name, int sizeByte, String format, String content, int width, int height, int hour, int minute, int second) {
         super(name, sizeByte, format);
         setContent(content);
-        setDuration(duration);
-        setSize(size);
-    }
+        duration = new Duration(hour, minute, second);
+        size = new Size(width, height);
 
+    }
 
 
     public String getContent() {
@@ -19,7 +19,7 @@ public class Video extends File {
     }
 
     public void setContent(String content) {
-        if(content.isEmpty()){
+        if (content.isEmpty()) {
             throw new IllegalArgumentException("Введите контент");
         }
         this.content = content;
@@ -40,12 +40,12 @@ public class Video extends File {
     public void setSize(Size size) {
         this.size = size;
     }
-    public void print(){
+
+    public void print() {
         super.print();
-        System.out.print(content);
-        duration.printDuration();
-        size.printSize();
+        System.out.format("%-50s |", getFormat() + ", " + getContent() + "," + duration.printDuration() + "," + size.printSize());
         System.out.println();
+        System.out.format("+---------------------------+------------------+-----------------------------------------------------+%n");
     }
 }
 

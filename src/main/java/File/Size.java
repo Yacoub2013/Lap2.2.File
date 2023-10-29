@@ -1,8 +1,8 @@
 package File;
 
 public class Size {
-    private int  width;
-     private int height;
+    private int width;
+    private int height;
 
     public Size(int width, int height) {
         setWidth(width);
@@ -10,14 +10,12 @@ public class Size {
     }
 
 
-
-
     public int getWidth() {
         return width;
     }
 
     public void setWidth(int width) {
-        if(width<=0){
+        if (width <= 0) {
             throw new IllegalArgumentException("Введите коректный размер");
         }
         this.width = width;
@@ -28,14 +26,17 @@ public class Size {
     }
 
     public void setHeight(int height) {
-        if(height<=0){
+        if (height <= 0) {
             throw new IllegalArgumentException("Введите коректный размер");
-        }else{
+        } else {
             this.height = height;
         }
 
     }
-    public void printSize(){
-        System.out.print(","+getWidth()+"x"+getHeight());
+
+    public String printSize() {
+        return width + "x" + height;
     }
 }
+
+
